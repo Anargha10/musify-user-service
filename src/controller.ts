@@ -278,7 +278,7 @@ export const updateSearchHistory = TryCatch(async (req: AuthenticatedRequest, re
     user.searchHistory = [
       term,
       ...(user.searchHistory || []).filter((t: string) => t !== term),
-    ].slice(0, 10); // keep last 10 terms
+    ].slice(0, 5); 
   
     await user.save();
   

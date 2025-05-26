@@ -240,7 +240,7 @@ export const updateSearchHistory = TryCatch(async (req, res) => {
     user.searchHistory = [
         term,
         ...(user.searchHistory || []).filter((t) => t !== term),
-    ].slice(0, 10); // keep last 10 terms
+    ].slice(0, 5);
     await user.save();
     res.status(200).json({ message: "Search history updated" });
 });
